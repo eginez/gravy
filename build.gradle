@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+
+mainClassName = 'org.eginez.gravy.Main'
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // We use the latest groovy 2.x version for building this library
+    compile 'org.codehaus.groovy:groovy-all:2.4.+'
+    compile 'org.slf4j:slf4j-log4j12:1.7.13'
+    
+
+    // We use the awesome Spock testing and specification framework
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'junit:junit:4.12'
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
