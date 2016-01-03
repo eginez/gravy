@@ -11,7 +11,8 @@ dependencies {
     // We use the latest groovy 2.x version for building this library
     compile 'org.codehaus.groovy:groovy-all:2.4.+'
     compile 'org.slf4j:slf4j-log4j12:1.7.13'
-    
+    compile 'com.oracle.truffle:truffle-dsl-processor:0.10'
+
 
     // We use the awesome Spock testing and specification framework
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
