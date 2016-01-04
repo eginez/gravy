@@ -7,9 +7,9 @@ import org.eginez.gravy.node.GravyNode
 
 @CompileStatic
 class GroovyParser {
-     GravyVisitor visitor = new GravyVisitor()
      public List<GravyNode> parse(String source) {
-          def ast = new AstBuilder().buildFromString(CompilePhase.FINALIZATION, source)
+          def visitor = new GravyVisitor()
+          def ast = new AstBuilder().buildFromString(CompilePhase.CONVERSION, source)
           ast.each {it.visit(visitor)}
           visitor.nodes
      }

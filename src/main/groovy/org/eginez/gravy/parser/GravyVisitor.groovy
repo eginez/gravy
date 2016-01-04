@@ -54,7 +54,9 @@ import org.codehaus.groovy.ast.stmt.WhileStatement
 import org.codehaus.groovy.classgen.BytecodeExpression
 import org.eginez.gravy.node.GravyContantExpressionNode
 import org.eginez.gravy.node.GravyNode
+import org.eginez.gravy.node.GravyVariableExpressionNode
 import org.eginez.gravy.type.GravyConstantExpression
+import org.eginez.gravy.type.GravyVariableExpression
 
 class GravyVisitor implements GroovyCodeVisitor {
     List<GravyNode> nodes = []
@@ -85,6 +87,7 @@ class GravyVisitor implements GroovyCodeVisitor {
 
     @Override
     void visitExpressionStatement(ExpressionStatement statement) {
+        statement.expression.visit(this)
 
     }
 
@@ -245,8 +248,7 @@ class GravyVisitor implements GroovyCodeVisitor {
 
     @Override
     void visitVariableExpression(VariableExpression expression) {
-        println expression
-
+        nodes << new GravyVariableExpressionNode(new GravyVariableExpression(expression))
     }
 
     @Override

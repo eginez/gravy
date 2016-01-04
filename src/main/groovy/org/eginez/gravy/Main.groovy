@@ -13,9 +13,9 @@ class Main {
 
     public static mainLoop() {
         Console console = System.console()
+        def parser = new GroovyParser()
         while(true) {
             String src = console.readLine('>')
-            def parser = new GroovyParser()
             def nodes = parser.parse(src)
             def fm = new FrameDescriptor()
             def vf = Truffle.runtime.createVirtualFrame([] as Object[], fm)

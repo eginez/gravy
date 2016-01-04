@@ -7,6 +7,7 @@ import com.oracle.truffle.api.nodes.UnexpectedResultException
 import groovy.transform.CompileStatic
 import org.eginez.gravy.type.GravyConstantExpression
 import org.eginez.gravy.type.GravyTypesGen
+import org.eginez.gravy.type.GravyVariableExpression
 
 
 /**
@@ -23,5 +24,9 @@ public abstract class GravyNode extends Node {
 
     public GravyConstantExpression executeConstantExpression(VirtualFrame virtualFrame) throws  UnexpectedResultException {
         return GravyTypesGen.expectGravyConstantExpression(this.execute(virtualFrame))
+    }
+
+    public GravyVariableExpression executeVariableExpression(VirtualFrame virtualFrame) throws UnexpectedResultException {
+        return GravyTypesGen.expectGravyVariableExpression(this.execute(virtualFrame))
     }
 }
